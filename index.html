@@ -4,39 +4,102 @@
    
     <title>Basic CSS</title>
     <style>
-        body{
+        /* body{
             color:green;
-        }
-        div{
+        } */
+        /* div{
             color:rgb(0, 0, 0);
             background-color: orange;
-     
+           
+            font: bold 24pt comic sans ms;
+            text-decoration: underline wavy green;
         }
         span{
             color:gold;
         }
         img{
-            /* width: 100%; */
+            width: 100%;
             float: left;
             padding-right: 20px;
+        } */
+        a{
+            font: 24pt arial;
+            color: blue;
+            text-decoration: none;
         }
     </style>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="utilities.js"> </script>
     <script>
         function initialize(){
-            halloweenText= document.getElementById("colordiv")
-            fore ="black";
-            back ="orange";
+            // halloweenText= document.getElementById("colordiv")
+            // fore ="black";
+            // back ="orange";
+            // textWidth =100;
+            textOutput = document.getElementById("textdiv");
+            fontSizeOutput = document.getElementById("sizeout");
+            numberOutput = document.getElementById("numout");
+            rndNum = 0;
+            display();
+
+            fontSize = 24;
         }
 
         function togglecolor(){
+            var tmp = fore;
+            fore = back;
+            back = tmp;
+            display();
+        }
+        function display(){
+            // halloweenText.style.color = fore;
+            // halloweenText.style.backgroundColor = back;
+            // halloweenText.style.width = textWidth + "%";
+
+            // fontSizeOutput.innerHTML = fontSize;
+            // textOutput.style.fontSize = fontSize + "pt";
+            numberOutput.innerHTML = rndNum;
+        }
+        function changeWidth(w){
+            textWidth = w;
+            display();
+        }
+
+        function modifyFontSize(mod){
+            fontSize +=mod;
+            if (fontSize < 4)
+                fontSize = 4;
+
+                display();
+        }
+        function changeNumber(){
+            rndNum = getRandomInteger(1,10);
+            display();
         }
     </script>
 </head>
 <body onload="initialize();">
+   
+    <h1>This is my home page</h1>
+    <a href = "destination.html">Link to Destination Page</a><br />
+    <br />
+    <a href="http://google.com" target = "_blank">Link to Google</a>
+    <!-- <h1>This is my page about external files</h1>
+    <p id="numout"></p>
+    <button onclick ="changeNumber();">Change the number</button> -->
+    <!-- <div id="textdiv">
+        I am a wonderful example of how fonts work!
+    </div>
+    <hr/>
+    <p>
+        <div>Current font size: <span id = "sizeout"></span>point</div>
+        <button onclick = "modifyFontSize(1);">Font Size ++</button>
+        <button onclick="modifyFontSize(-1);">Font Size --</button>
+    </p> -->
     <!-- This is the text on my basic CSS page -->
-    <div id="colordiv"> 
+    <!-- <div id="colordiv"> 
         Click the button to switch me from black to orange and black again and again. 
-        Happy Halloween.
+        Happy Halloween. -->
         <!-- <img src = "doctor who.jpg" />
         <span>
              
@@ -56,11 +119,15 @@ most people won’t read an article about let’s say “editing” unless it’
 writing you will ever read. It may even be longer than any other boring article about writing. If you are looking for a fun, entertaining 
 read on how to write a great novel or short story, this is not it.
         </span> -->
-    </div>
+    <!-- </div> -->
 
-    <p>
-        <button>Toggle Colors</button>
-    </p>
+    <!-- <p>
+        <button onclick = "toggleColor();">Toggle Colors</button>
+        <button onclick = "changeWidth(25);">25% width</button>
+        <button onclick = "changeWidth(50);">50% width</button>
+        <button onclick = "changeWidth(75);">75% width</button>
+        <button onclick = "changeWidth(100);">100% width</button>
+    </p> -->
     <!-- <hr/>
     <h1>Old Doctors</h1>
     <img src="images/jon pertwee.jpg"/>
